@@ -1,0 +1,75 @@
+﻿@model Phd.Models.PhdStudent
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Вы точно хотите удалить данного докторанта?</h3>
+<div>
+    <h4>Докторант</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MajName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MajName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DisNameKaz)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DisNameKaz)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DisNameRus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DisNameRus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DisNameEng)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DisNameEng)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MajorCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MajorCode)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

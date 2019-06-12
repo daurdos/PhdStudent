@@ -1,0 +1,97 @@
+﻿@model Phd.Models.MajorCodeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Создать докторанта</a>
+</p>
+
+<form asp-controller="PhdStudents" asp-action="Index" method="get">
+    <p>
+        <select asp-for="MajorCode" asp-items="Model.Codes">
+            <option value="">All</option>
+        </select>
+
+        Введите фамилию докторанта <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].Mname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].MajName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].DisNameKaz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].DisNameRus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].DisNameEng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].MajorCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PhdStudents)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MajName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisNameKaz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisNameRus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisNameEng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MajorCode)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                <a asp-action="CreateVote" asp-route-id="@item.Id">Vote</a> |
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
