@@ -118,7 +118,7 @@ namespace Phd.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateVote([Bind("Voice")] Vote vote)
+        public async Task<IActionResult> CreateVote([Bind("PhdStudentId,Voice")] Vote vote)
         {
             if (ModelState.IsValid)
             {
