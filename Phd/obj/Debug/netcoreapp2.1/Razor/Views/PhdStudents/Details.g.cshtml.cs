@@ -243,7 +243,7 @@ using Phd.Models;
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n        <div>\r\n            ");
             EndContext();
             BeginContext(1779, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7253853b77e04cb0b6a3a7b6ae3dc5ab", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "65fdb3ab545f462da5c1d8ad04af3289", async() => {
                 BeginContext(1801, 14, true);
                 WriteLiteral("Назад к списку");
                 EndContext();

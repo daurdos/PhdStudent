@@ -54,15 +54,13 @@ namespace Phd.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("PhdStudentId");
-
-                    b.Property<int?>("PhdStudentId1");
+                    b.Property<int>("PhdStudentId");
 
                     b.Property<string>("Voice");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PhdStudentId1");
+                    b.HasIndex("PhdStudentId");
 
                     b.ToTable("Vote");
                 });
@@ -71,7 +69,8 @@ namespace Phd.Migrations
                 {
                     b.HasOne("Phd.Models.PhdStudent", "PhdStudent")
                         .WithMany("Vote")
-                        .HasForeignKey("PhdStudentId1");
+                        .HasForeignKey("PhdStudentId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

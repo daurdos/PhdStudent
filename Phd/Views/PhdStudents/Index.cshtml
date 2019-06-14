@@ -25,10 +25,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].Fname)
+                @Html.DisplayNameFor(model => model.PhdStudents[1].Fname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].Lname)
+                @Html.DisplayNameFor(model => model.PhdStudents[3].Lname)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PhdStudents[0].Mname)
@@ -88,8 +88,9 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>  |
                 <a asp-action="CreateVote" asp-route-id="@item.Id">Vote</a> |
+                <a asp-action="VoteResult" asp-route-id="@item.Id">Result</a> |
             </td>
         </tr>
         }

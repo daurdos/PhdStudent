@@ -18,12 +18,7 @@ namespace Phd.Models
     {
         public int Id { get; set; }
         public string Voice { get; set; }
+        public int PhdStudentId { get; set; }
         public PhdStudent PhdStudent { get; set; }
-        
-        public string PhdStudentId { get; set; }
-
-
-
-
     }
 }

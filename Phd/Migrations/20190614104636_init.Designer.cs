@@ -10,8 +10,8 @@ using Phd.Models;
 namespace Phd.Migrations
 {
     [DbContext(typeof(PhdContext))]
-    [Migration("20190612044940_Eleventh")]
-    partial class Eleventh
+    [Migration("20190614104636_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,15 +56,13 @@ namespace Phd.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("PhdStudentId");
-
-                    b.Property<int?>("PhdStudentId1");
+                    b.Property<int>("PhdStudentId");
 
                     b.Property<string>("Voice");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PhdStudentId1");
+                    b.HasIndex("PhdStudentId");
 
                     b.ToTable("Vote");
                 });
@@ -73,7 +71,8 @@ namespace Phd.Migrations
                 {
                     b.HasOne("Phd.Models.PhdStudent", "PhdStudent")
                         .WithMany("Vote")
-                        .HasForeignKey("PhdStudentId1");
+                        .HasForeignKey("PhdStudentId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

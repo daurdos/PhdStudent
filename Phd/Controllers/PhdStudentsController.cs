@@ -25,13 +25,16 @@ namespace Phd.Controllers
                                            orderby m.MajorCode
                                            select m.MajorCode;
 
-            var phdStudents = from m in _context.PhdStudent
+            // запрос на поиск по строке
+                var phdStudents = from m in _context.PhdStudent
                          select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 phdStudents = phdStudents.Where(s => s.Lname.Contains(searchString));
             }
+
+            ///////////////////
 
             if (!string.IsNullOrEmpty(majorCode))
             {
@@ -126,7 +129,7 @@ namespace Phd.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(vote);
+            return View();
         }
 
 
@@ -135,6 +138,120 @@ namespace Phd.Controllers
 
 
 
+
+
+
+
+
+        /*
+
+        public async Task<IActionResult> Index(string majorCode, string searchString)
+        {
+            IQueryable<string> codeQuery = from m in _context.PhdStudent
+                                           orderby m.MajorCode
+                                           select m.MajorCode;
+
+            var phdStudents = from m in _context.PhdStudent
+                              select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                phdStudents = phdStudents.Where(s => s.Lname.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(majorCode))
+            {
+                phdStudents = phdStudents.Where(x => x.MajorCode == majorCode);
+            }
+
+            var majorCodeVM = new MajorCodeViewModel
+            {
+                Codes = new SelectList(await codeQuery.Distinct().ToListAsync()),
+                PhdStudents = await phdStudents.ToListAsync()
+            };
+
+            return View(majorCodeVM);
+        }
+        */
+        /*
+        public IActionResult VoteResult(int id, string lastName, string firstName, string middleName, string majorName, string majorCode, string projectName, int voicesCount, int voicesCountPositive, int voicesCountNegative, int voicesCountAbstain)
+        {
+            ViewBag.Id = id;
+            ViewBag.Lname = lastName;
+            ViewBag.Fname = firstName;
+            ViewBag.Mname = middleName;
+            ViewBag.MajName = majorName;
+            ViewBag.MajorCode = majorCode;
+            ViewBag.DisNameRus = projectName;
+
+
+            var result  = from m in _context.PhdStudent
+                   where m.Id == id
+                   select m;
+
+
+
+            return View();
+        }
+
+    */
+        /*
+            public IActionResult VoteResult(int? id)
+            {
+                ViewBag.Id = id;
+                return View();
+            }
+
+        *//*
+            public IActionResult VoteResult(int id)
+            {
+                var result = from m in _context.PhdStudent
+                             select m;
+
+                    result = result.Where(s => s.Id == id);
+
+                return View(result.ToList());
+            }
+            */
+
+
+
+            /*
+
+        public Task<IAsyncResult> VoteResult(int id)
+        {
+
+            // var vote = await _context.Vote
+            //         .FirstOrDefaultAsync(m => m.Id == id);
+
+
+            /*
+            var vote = "SELECT COUNT(Voice) FROM Vote where PhdStudentId = '" + id + "'";
+            ViewBag.Vote = vote;
+
+            return vote;
+            */
+            /*
+            var result = from r in _context.Vote
+                         where r.PhdStudentId = id
+                         orderby t
+          
+    */
+    /*
+
+            var voteResult = await  _context.Vote.
+                FirstOrDefaultAsync(Where(p => p.PhdStudentId == id));
+               
+            /*
+            var phdStudent = await _context.PhdStudent
+                .FirstOrDefaultAsync(m => m.Id == id);
+            
+    */
+       //     return View();
+   //     }
+
+
+//    */
 
 
 
