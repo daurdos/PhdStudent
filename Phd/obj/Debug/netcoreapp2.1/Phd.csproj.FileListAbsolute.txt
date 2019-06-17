@@ -37,3 +37,4 @@ C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudent
 C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudents\Index.g.cshtml.cs
 C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudents\CreateVote.g.cshtml.cs
 C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudents\VoteResult.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudents\GetReportsAsync.g.cshtml.cs

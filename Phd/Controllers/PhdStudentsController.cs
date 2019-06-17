@@ -216,42 +216,88 @@ namespace Phd.Controllers
 
 
 
-            /*
+        /*
 
-        public Task<IAsyncResult> VoteResult(int id)
+    public Task<IAsyncResult> VoteResult(int id)
+    {
+
+        // var vote = await _context.Vote
+        //         .FirstOrDefaultAsync(m => m.Id == id);
+
+
+        /*
+        var vote = "SELECT COUNT(Voice) FROM Vote where PhdStudentId = '" + id + "'";
+        ViewBag.Vote = vote;
+
+        return vote;
+        */
+        /*
+        var result = from r in _context.Vote
+                     where r.PhdStudentId = id
+                     orderby t
+
+*/
+        /*
+
+                var voteResult = await  _context.Vote.
+                    FirstOrDefaultAsync(Where(p => p.PhdStudentId == id));
+
+                /*
+                var phdStudent = await _context.PhdStudent
+                    .FirstOrDefaultAsync(m => m.Id == id);
+
+        */
+        //     return View();
+        //     }
+
+
+        //    */
+
+
+
+
+
+
+        public IActionResult VoteResult(int? id)
         {
+            var resultAll = _context.Vote.Count(p => p.PhdStudentId == id);
+            ViewBag.Vote = resultAll;
+            return View(resultAll);
+        }
 
-            // var vote = await _context.Vote
-            //         .FirstOrDefaultAsync(m => m.Id == id);
+        /*
+        [HttpGet]
+        public async Task<IActionResult> GetReportsAsync(int id)
+        {
+            var student = await _context.PhdStudent.Include(x => x.Vote).FirstOrDefaultAsync(x => x.Id == id);
 
-
-            /*
-            var vote = "SELECT COUNT(Voice) FROM Vote where PhdStudentId = '" + id + "'";
-            ViewBag.Vote = vote;
-
-            return vote;
-            */
-            /*
-            var result = from r in _context.Vote
-                         where r.PhdStudentId = id
-                         orderby t
-          
-    */
-    /*
-
-            var voteResult = await  _context.Vote.
-                FirstOrDefaultAsync(Where(p => p.PhdStudentId == id));
-               
-            /*
-            var phdStudent = await _context.PhdStudent
-                .FirstOrDefaultAsync(m => m.Id == id);
-            
-    */
-       //     return View();
-   //     }
+            return Ok(new StudentReportViewModel
+            {
+                FName = student.Fname,
+                LName = student.Lname,
+                PositiveVoteQuantity = student.Vote.Where(xx => xx.Voice == "1").Count(),
+                NegativeVoteQuantity = student.Vote.Where(xx => xx.Voice == "0").Count()
+            });
+        }
+        */
 
 
-//    */
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetReportsAsync(int id)
+        {
+            var student = await _context.PhdStudent.Include(x => x.Vote).FirstOrDefaultAsync(x => x.Id == id);
+
+            return View(new StudentReportViewModel
+            {
+                FName = student.Fname,
+                LName = student.Lname,
+                PositiveVoteQuantity = student.Vote.Where(xx => xx.Voice == "1").Count(),
+                NegativeVoteQuantity = student.Vote.Where(xx => xx.Voice == "0").Count(),
+                OverallVoteQuantity = student.Vote.Where(xx => xx.PhdStudentId == id).Count()
+            });
+        }
 
 
 
