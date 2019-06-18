@@ -11,6 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Home\Index - old.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Home\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Update="Views\PhdStudents\CreateVote.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

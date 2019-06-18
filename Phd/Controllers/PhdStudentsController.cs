@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -75,6 +76,7 @@ namespace Phd.Controllers
             return View(phdStudent);
         }
 
+        [Authorize(Roles = "moderator")]
         // GET: PhdStudents/Create
         public IActionResult Create()
         {
@@ -84,6 +86,8 @@ namespace Phd.Controllers
         // POST: PhdStudents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize(Roles = "moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Fname,Lname,Mname,MajName,DisNameKaz,DisNameRus,DisNameEng,ReleaseDate,MajorCode")] PhdStudent phdStudent)
@@ -107,10 +111,14 @@ namespace Phd.Controllers
 
 
 
-    //////////////////////////////////////////////////////////
-    
+        //////////////////////////////////////////////////////////
 
 
+
+
+
+
+        [Authorize(Roles = "user")]
         public IActionResult CreateVote(int id)
         {
             ViewBag.Id = id;
@@ -118,7 +126,7 @@ namespace Phd.Controllers
         }
 
 
-
+        [Authorize(Roles = "user")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateVote([Bind("PhdStudentId,Voice")] Vote vote)
@@ -257,7 +265,7 @@ namespace Phd.Controllers
 
 
 
-
+        [Authorize(Roles = "moderator")]
         public IActionResult VoteResult(int? id)
         {
             var resultAll = _context.Vote.Count(p => p.PhdStudentId == id);
@@ -283,7 +291,7 @@ namespace Phd.Controllers
 
 
 
-
+        [Authorize(Roles = "moderator")]
         [HttpGet]
         public async Task<IActionResult> GetReportsAsync(int id)
         {
@@ -336,7 +344,7 @@ namespace Phd.Controllers
 
 
 
-
+        [Authorize(Roles = "moderator")]
         // GET: PhdStudents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -357,6 +365,8 @@ namespace Phd.Controllers
         // POST: PhdStudents/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        [Authorize(Roles = "moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Fname,Lname,Mname,MajName,DisNameKaz,DisNameRus,DisNameEng,ReleaseDate,MajorCode")] PhdStudent phdStudent)
@@ -389,6 +399,7 @@ namespace Phd.Controllers
             return View(phdStudent);
         }
 
+        [Authorize(Roles = "moderator")]
         // GET: PhdStudents/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -408,6 +419,7 @@ namespace Phd.Controllers
         }
 
         // POST: PhdStudents/Delete/5
+        [Authorize(Roles = "moderator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

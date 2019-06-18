@@ -17,7 +17,7 @@
         </select>
 
         Введите фамилию докторанта <input type="text" name="SearchString">
-        <input type="submit" value="Filter" />
+        <input type="submit" value="Поиск" />
     </p>
 </form>
 
@@ -85,12 +85,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.MajorCode)
             </td>
+
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>  |
-                <a asp-action="CreateVote" asp-route-id="@item.Id">Vote</a> |
-                <a asp-action="GetReportsAsync" asp-route-id="@item.Id">Result</a> |
+                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
+                <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@item.Id">Детали</a>
+                <a class="btn btn-sm btn-primary" asp-action="Delete" asp-route-id="@item.Id">Удалить</a> 
+                <a class="btn btn-sm btn-primary" asp-action="CreateVote" asp-route-id="@item.Id">Голосовать</a>
+                <a class="btn btn-sm btn-primary" asp-action="GetReportsAsync" asp-route-id="@item.Id">Результаты</a>
             </td>
         </tr>
         }

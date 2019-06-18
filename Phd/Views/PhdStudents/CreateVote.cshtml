@@ -4,9 +4,9 @@
     ViewData["Title"] = "Vote";
 }
 
-<h2>Vote</h2>
+<h2>Голосовать</h2>
 
-<h4>PhdStudent</h4>
+<h4>по докторанту</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,7 +18,7 @@
             <input type="hidden" value="@ViewBag.Id" name="PhdStudentId" />
             <div>
                 <div>
-                    <label asp-for="Voice">Голос</label>
+                    <label asp-for="Voice">Голосовать</label>
                     <select asp-for="Voice" asp-items="Html.GetEnumSelectList<Choice>()"></select>
                 </div>
                 <div>
@@ -36,7 +36,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Назад</a>
+    <a asp-action="Index">Назад к списку</a>
 </div>
 
 @section Scripts {

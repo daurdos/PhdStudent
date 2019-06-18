@@ -38,3 +38,14 @@ C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudent
 C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudents\CreateVote.g.cshtml.cs
 C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudents\VoteResult.g.cshtml.cs
 C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\PhdStudents\GetReportsAsync.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index - old.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Users\Create.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Users\Edit.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Users\ChangePassword.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Index.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Create.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Roles\UserList.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Edit.g.cshtml.cs
