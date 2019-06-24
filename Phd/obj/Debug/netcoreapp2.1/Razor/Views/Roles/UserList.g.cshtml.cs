@@ -74,7 +74,7 @@ using Phd.Models;
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(216, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5871a709e494f619ccd5d2c7b7dc846", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6956f6b4a494b398c702b755d7693d4", async() => {
                 BeginContext(296, 13, true);
                 WriteLiteral("Права доступа");
                 EndContext();

@@ -29,13 +29,26 @@
 
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav nav-tabs">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Домой</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Register">Регистрация</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Login">Вход</a></li>
                     <li><a asp-area="" asp-controller="PhdStudents" asp-action="Index">Голосование</a></li>
                     <li><a asp-area="" asp-controller="Users" asp-action="Index">Управление пользователями</a></li>
                     <li><a asp-area="" asp-controller="Roles" asp-action="Index">Управление ролями</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">О системе</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Контакты</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <br />
+                            <form method="post" asp-controller="Account" asp-action="LogOff">
+                                <input type="submit" value="Выход" />
+                            </form>
+                        </li>
+                    }
+
+
                 </ul>
             </div>
         </div>

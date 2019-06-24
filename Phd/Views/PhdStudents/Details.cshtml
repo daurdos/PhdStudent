@@ -1,77 +1,40 @@
 ﻿@model Phd.Models.PhdStudent
 
 
+
 @{
     ViewData["Title"] = "Details";
 }
 
-<h2>Профиль</h2>
+<h3>БЮЛЛЕТЕНЬ</h3>
 
 <div>
-    <h4>Докторант: </h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fname)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Fname)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Lname)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Lname)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Mname)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Mname)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.MajName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.MajName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DisNameKaz)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DisNameKaz)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DisNameRus)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DisNameRus)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DisNameEng)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DisNameEng)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseDate)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.MajorCode)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.MajorCode)
-        </dd>
-    </dl>
-</div>
+    <h4>
+        к заседанию Диссертационного совета по направлению подготовки кадров    <br />
+
+        _________________________________________________________________       <br />
+        по защите докторских диссертаций в ЕНУ имени Л.Н. Гумилева              <br />
+        от @Html.DisplayFor(model => model.ReleaseDate)                         <br />
+        Фамилия, имя, отчество соискателя:                                      <br />
+        @Html.DisplayFor(model => model.Lname)
+        @Html.DisplayFor(model => model.Fname)
+        @Html.DisplayFor(model => model.Mname)                                  <br />
+        Присуждаемая степень:                                                   <br />
+        Доктор Phd по специальности                                             <br />
+        @Html.DisplayFor(model => model.MajorCode)
+        (Шифр)                                                                  <br />
+        @Html.DisplayFor(model => model.MajName)
+        (Наименование)                                                          <br />
+    </h4>
+<div />
 
 
 
 
 
-        <div>
-            <a asp-action="Index">Назад к списку</a> |
-        </div>
+
+
+
+    <div>
+        <a asp-action="Index">Назад к списку</a> |
+    </div>

@@ -8,9 +8,14 @@ namespace Phd.Models
     public class StudentReportViewModel
     {
         public string FName { get; set; }
+        public string MName { get; set; }
         public string LName { get; set; }
         public int PositiveVoteQuantity { get; set; }
         public int NegativeVoteQuantity { get; set; }
         public int OverallVoteQuantity { get; set; }
+        public string MajName { get; set; }
+        public string MajorCode { get; set; }
+        public string DisNameRus { get; set; }
+        public DateTime ReleaseDate { get; set; }
     }
 }

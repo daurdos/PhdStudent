@@ -5,46 +5,43 @@
     ViewData["Title"] = "Get reports";
 }
 
-    <h2>РЕЗУЛЬТАТЫ ТАЙНОГО ГОЛОСОВАНИЯ</h2>
+    <h3>РЕЗУЛЬТАТЫ ТАЙНОГО ГОЛОСОВАНИЯ</h3>
 
-<div>
-    <h4>по диссертации</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PositiveVoteQuantity)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.PositiveVoteQuantity)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.NegativeVoteQuantity)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NegativeVoteQuantity)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.OverallVoteQuantity)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OverallVoteQuantity)
-        </dd>
+    <div>
+        <h4>по диссертации</h4>
+        <hr />
+        @Html.DisplayFor(model => model.DisNameRus)
+        <hr />
+        на соискание степени доктора PhD по специальности
+        <hr />
+        @Html.DisplayFor(model => model.MajorCode)
+        @Html.DisplayFor(model => model.MajName)
+        <hr />
+        Состав диссертационного совета утвержден в количестве
+        @Html.DisplayFor(model => model.OverallVoteQuantity)
+        Присутствовало на заседании
+        @Html.DisplayFor(model => model.OverallVoteQuantity)
+        членов совета, в том числе по профилю рассматриваемой диссертации _________
+        <hr />
+        Результаты голосования по вопросу ходатайства о присуждении степени доктора философии (PhD)
+        <hr />
+        @Html.DisplayFor(model => model.LName)
+        @Html.DisplayFor(model => model.FName)
+        @Html.DisplayFor(model => model.MName)
+        <hr />
 
+        «за»
+        @Html.DisplayFor(model => model.PositiveVoteQuantity)
+        <hr />
+        «против»
+        @Html.DisplayFor(model => model.PositiveVoteQuantity)
+        <hr />
+        Председатель счетной комиссии  _____________          ______________
+        <hr />        <hр />
 
-    </dl>
-</div>
+        Члены комиссии 			______________            ________________
+    
+    </div>
 
 
 

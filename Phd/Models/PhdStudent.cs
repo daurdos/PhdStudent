@@ -8,6 +8,7 @@ namespace Phd.Models
 {
     public class PhdStudent
     {
+
         public int Id { get; set; }
 
         [Display(Name = "Имя")]
@@ -38,6 +39,9 @@ namespace Phd.Models
         [Display(Name = "Шифр специальности")]
         public string MajorCode { get; set; }
         public ICollection<Vote> Vote { get; set; }
+
+
+
 
     }
 }

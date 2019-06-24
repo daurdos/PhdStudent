@@ -301,9 +301,15 @@ namespace Phd.Controllers
             {
                 FName = student.Fname,
                 LName = student.Lname,
+                MName = student.Mname,
                 PositiveVoteQuantity = student.Vote.Where(xx => xx.Voice == "1").Count(),
                 NegativeVoteQuantity = student.Vote.Where(xx => xx.Voice == "0").Count(),
-                OverallVoteQuantity = student.Vote.Where(xx => xx.PhdStudentId == id).Count()
+                OverallVoteQuantity = student.Vote.Where(xx => xx.PhdStudentId == id).Count(),
+                MajName = student.MajorCode,
+                MajorCode = student.MajorCode,
+                DisNameRus = student.DisNameRus,
+                ReleaseDate = student.ReleaseDate
+
             });
         }
 

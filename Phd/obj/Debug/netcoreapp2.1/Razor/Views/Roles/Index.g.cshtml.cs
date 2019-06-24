@@ -78,7 +78,7 @@ using Phd.Models;
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(234, 227, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6b85950d269d484b8f4f4a87aa4c19a8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "126b8810016d4062be0de5a0f47b99b2", async() => {
                 BeginContext(298, 156, true);
                 WriteLiteral("\r\n                    <button type=\"submit\" class=\"btn btn-sm btn-danger\">\r\n                        Удалить\r\n                    </button>\r\n                ");
                 EndContext();
@@ -125,7 +125,7 @@ using Phd.Models;
             WriteLiteral("</table>\r\n");
             EndContext();
             BeginContext(514, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "153403fe8ecc444a84e7a1e260c4fa66", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "74151ed5ee754cefa6e2e160788e9b9f", async() => {
                 BeginContext(537, 13, true);
                 WriteLiteral("Добавить роль");
                 EndContext();
@@ -147,7 +147,7 @@ using Phd.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(556, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "76fc24d48acf4f46b07b536768e1d1c7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5e6b8b46d6d46ecb1f1e902f3e928f4", async() => {
                 BeginContext(581, 20, true);
                 WriteLiteral("Список пользователей");
                 EndContext();
