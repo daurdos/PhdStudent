@@ -56,15 +56,15 @@ namespace Phd.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Fname = table.Column<string>(nullable: true),
-                    Lname = table.Column<string>(nullable: true),
-                    Mname = table.Column<string>(nullable: true),
-                    MajName = table.Column<string>(nullable: true),
-                    DisNameKaz = table.Column<string>(nullable: true),
-                    DisNameRus = table.Column<string>(nullable: true),
-                    DisNameEng = table.Column<string>(nullable: true),
-                    ReleaseDate = table.Column<DateTime>(nullable: false),
-                    MajorCode = table.Column<string>(nullable: true)
+                    LastName = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    MiddleName = table.Column<string>(nullable: true),
+                    MajorCode = table.Column<string>(nullable: true),
+                    MajorName = table.Column<string>(nullable: true),
+                    ThesisNameRus = table.Column<string>(nullable: true),
+                    ThesisComDate = table.Column<DateTime>(nullable: false),
+                    ComMemberNumberTotal = table.Column<int>(nullable: false),
+                    ComMemberNumberSpecific = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -91,6 +91,9 @@ namespace Phd.Controllers
             return View(model);
         }
 
+
+
+
         [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<ActionResult> Delete(string id)

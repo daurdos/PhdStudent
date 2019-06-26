@@ -5,11 +5,9 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <p>@User.Identity.Name</p>
+    <p><h3>Добро пожаловать в систему онлайн-голосования по диссертационным советам</h3></p>
+    <p><h4>@User.Identity.Name</h4></p>
 
-    <form method="post" asp-controller="Account" asp-action="LogOff">
-        <input type="submit" value="Выход" />
-    </form>
 }
 else
 {

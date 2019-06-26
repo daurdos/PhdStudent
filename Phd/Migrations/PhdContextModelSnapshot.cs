@@ -135,23 +135,23 @@ namespace Phd.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DisNameEng");
+                    b.Property<int>("ComMemberNumberSpecific");
 
-                    b.Property<string>("DisNameKaz");
+                    b.Property<int>("ComMemberNumberTotal");
 
-                    b.Property<string>("DisNameRus");
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("Fname");
-
-                    b.Property<string>("Lname");
-
-                    b.Property<string>("MajName");
+                    b.Property<string>("LastName");
 
                     b.Property<string>("MajorCode");
 
-                    b.Property<string>("Mname");
+                    b.Property<string>("MajorName");
 
-                    b.Property<DateTime>("ReleaseDate");
+                    b.Property<string>("MiddleName");
+
+                    b.Property<DateTime>("ThesisComDate");
+
+                    b.Property<string>("ThesisNameRus");
 
                     b.HasKey("Id");
 

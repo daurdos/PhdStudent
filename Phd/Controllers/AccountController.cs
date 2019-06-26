@@ -16,11 +16,15 @@ namespace Phd.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
+
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {

@@ -25,31 +25,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].Fname)
+                @Html.DisplayNameFor(model => model.PhdStudents[0].LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].Lname)
+                @Html.DisplayNameFor(model => model.PhdStudents[0].FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].Mname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].MajName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].DisNameKaz)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].DisNameRus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].DisNameEng)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhdStudents[0].ReleaseDate)
+                @Html.DisplayNameFor(model => model.PhdStudents[0].MiddleName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PhdStudents[0].MajorCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].MajorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].ThesisNameRus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhdStudents[0].ThesisComDate)
             </th>
             <th></th>
         </tr>
@@ -59,37 +53,30 @@
         {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Fname)
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lname)
+                @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Mname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MajName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisNameKaz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisNameRus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisNameEng)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
+                @Html.DisplayFor(modelItem => item.MiddleName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MajorCode)
             </td>
-
+            <td>
+                @Html.DisplayFor(modelItem => item.MajorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThesisNameRus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThesisComDate)
+            </td>
             <td>
                 <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
-                <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@item.Id">Детали</a>
-                <a class="btn btn-sm btn-primary" asp-action="Delete" asp-route-id="@item.Id">Удалить</a> 
+                <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@item.Id">Бюллетень</a>
+                <a class="btn btn-sm btn-primary" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
                 <a class="btn btn-sm btn-primary" asp-action="CreateVote" asp-route-id="@item.Id">Голосовать</a>
                 <a class="btn btn-sm btn-primary" asp-action="GetReportsAsync" asp-route-id="@item.Id">Результаты</a>
             </td>

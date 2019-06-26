@@ -10,9 +10,7 @@ namespace Phd.Models
         [Display(Name = "Против")]
         No,
         [Display(Name = "За")]
-        Yes,
-        [Display(Name = "Воздерживаюсь")]
-        NA
+        Yes
     }
     public class Vote
     {

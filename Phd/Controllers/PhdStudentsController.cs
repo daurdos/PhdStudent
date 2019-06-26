@@ -32,7 +32,7 @@ namespace Phd.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                phdStudents = phdStudents.Where(s => s.Lname.Contains(searchString));
+                phdStudents = phdStudents.Where(s => s.LastName.Contains(searchString));
             }
 
             ///////////////////
@@ -90,7 +90,7 @@ namespace Phd.Controllers
         [Authorize(Roles = "moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Fname,Lname,Mname,MajName,DisNameKaz,DisNameRus,DisNameEng,ReleaseDate,MajorCode")] PhdStudent phdStudent)
+        public async Task<IActionResult> Create([Bind("Id,LastName,FirstName,MiddleName,MajorCode,MajorName,ThesisNameRus,ThesisComDate,ComMemberNumberTotal,ComMemberNumberSpecific")] PhdStudent phdStudent)
         {
             if (ModelState.IsValid)
             {
@@ -299,18 +299,20 @@ namespace Phd.Controllers
 
             return View(new StudentReportViewModel
             {
-                FName = student.Fname,
-                LName = student.Lname,
-                MName = student.Mname,
+                FName = student.FirstName,
+                LName = student.LastName,
+                MName = student.MiddleName,
                 PositiveVoteQuantity = student.Vote.Where(xx => xx.Voice == "1").Count(),
                 NegativeVoteQuantity = student.Vote.Where(xx => xx.Voice == "0").Count(),
                 OverallVoteQuantity = student.Vote.Where(xx => xx.PhdStudentId == id).Count(),
                 MajName = student.MajorCode,
-                MajorCode = student.MajorCode,
-                DisNameRus = student.DisNameRus,
-                ReleaseDate = student.ReleaseDate
+                MajCode = student.MajorCode,
+                DisNameRus = student.ThesisNameRus,
+                ReleaseDate = student.ThesisComDate,
+                MemberNumberTotal = student.ComMemberNumberTotal,
+                MemberNumberSpecific = student.ComMemberNumberSpecific
 
-            });
+            }) ;
         }
 
 

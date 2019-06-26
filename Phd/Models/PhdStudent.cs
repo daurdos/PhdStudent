@@ -11,37 +11,35 @@ namespace Phd.Models
 
         public int Id { get; set; }
 
-        [Display(Name = "Имя")]
-        public string Fname { get; set; }
-
         [Display(Name = "Фамилия")]
-        public string Lname { get; set; }
+        public string LastName { get; set; }
+
+        [Display(Name = "Имя")]
+        public string FirstName { get; set; }
 
         [Display(Name = "Отчество")]
-        public string Mname { get; set; }
-
-        [Display(Name = "Специальность")]
-        public string MajName { get; set; }
-
-        [Display(Name = "Диссертация на каз.яз")]
-        public string DisNameKaz { get; set; }
-
-        [Display(Name = "Диссертация на русс.яз")]
-        public string DisNameRus { get; set; }
-
-        [Display(Name = "Диссертация на англ.яз")]
-        public string DisNameEng { get; set; }
-
-        [Display(Name = "Дата защиты")]
-        [DataType(DataType.Date)]
-        public DateTime ReleaseDate { get; set; }
+        public string MiddleName { get; set; }
 
         [Display(Name = "Шифр специальности")]
         public string MajorCode { get; set; }
+
+        [Display(Name = "Специальность")]
+        public string MajorName { get; set; }
+
+        [Display(Name = "Название диссертации")]
+        public string ThesisNameRus { get; set; }
+
+        [Display(Name = "Дата диссертационного совета")]
+        [DataType(DataType.Date)]
+        public DateTime ThesisComDate { get; set; }
+
+        [Display(Name = "Всего членов совета")]
+        public int ComMemberNumberTotal { get; set; }
+
+        [Display(Name = "Членов совета по специальности")]
+        public int ComMemberNumberSpecific { get; set; }
+               
         public ICollection<Vote> Vote { get; set; }
-
-
-
 
     }
 }

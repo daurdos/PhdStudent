@@ -5,31 +5,31 @@
 @{
     ViewData["Title"] = "Details";
 }
+<body align = "center">
 
 <h3>БЮЛЛЕТЕНЬ</h3>
 
 <div>
     <h4>
-        к заседанию Диссертационного совета по направлению подготовки кадров    <br />
+        к заседанию Диссертационного совета по направлению подготовки кадров    <hr />
 
-        _________________________________________________________________       <br />
+        _________________________________________________________________       <hr />
         по защите докторских диссертаций в ЕНУ имени Л.Н. Гумилева              <br />
-        от @Html.DisplayFor(model => model.ReleaseDate)                         <br />
+        от <em>@Html.DisplayFor(model => model.ThesisComDate)  </em> <hr />
         Фамилия, имя, отчество соискателя:                                      <br />
-        @Html.DisplayFor(model => model.Lname)
-        @Html.DisplayFor(model => model.Fname)
-        @Html.DisplayFor(model => model.Mname)                                  <br />
+        <b><em>@Html.DisplayFor(model => model.LastName)</b></em>
+        <b><em> @Html.DisplayFor(model => model.FirstName)</b></em>
+        <b><em>@Html.DisplayFor(model => model.MiddleName)   </b></em>                          <hr />
         Присуждаемая степень:                                                   <br />
         Доктор Phd по специальности                                             <br />
-        @Html.DisplayFor(model => model.MajorCode)
-        (Шифр)                                                                  <br />
-        @Html.DisplayFor(model => model.MajName)
-        (Наименование)                                                          <br />
+        <b><em>@Html.DisplayFor(model => model.MajorCode)</b></em>
+
+        <b><em>@Html.DisplayFor(model => model.MajorName)</b></em>
+                                                      <hr />
     </h4>
 <div />
 
-
-
+</body>
 
 
 

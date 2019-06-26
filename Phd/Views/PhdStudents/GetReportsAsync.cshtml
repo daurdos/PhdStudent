@@ -4,49 +4,55 @@
 @{
     ViewData["Title"] = "Get reports";
 }
-
-    <h3>РЕЗУЛЬТАТЫ ТАЙНОГО ГОЛОСОВАНИЯ</h3>
-
-    <div>
-        <h4>по диссертации</h4>
+    <body align="center">
+        <p><h3>РЕЗУЛЬТАТЫ ТАЙНОГО ГОЛОСОВАНИЯ</h3></p>
         <hr />
-        @Html.DisplayFor(model => model.DisNameRus)
+        <div><h3>по диссертации<h3></div>
+        <br />
+        <div><strong><b><em>@Html.DisplayFor(model => model.DisNameRus)</em></b></strong></div>
+        <br />
+        <div>на соискание степени доктора PhD по специальности</div>
+        <br />
+        <div><b><em>@Html.DisplayFor(model => model.MajCode) </em></b></div>
+        <div><b><em>@Html.DisplayFor(model => model.MajName) </em></b></div>
+        <br />
+        <div>
+            Состав диссертационного совета утвержден в количестве
+            @Html.DisplayFor(model => model.OverallVoteQuantity)
+        </div>
         <hr />
-        на соискание степени доктора PhD по специальности
+        <div>
+            Присутствовало на заседании
+            <b>
+                <em>
+                    @Html.DisplayFor(model => model.MemberNumberTotal)
+                </em>
+            </b>
+            членов совета, в том числе по профилю рассматриваемой диссертации
+            <b><em>@Html.DisplayFor(model => model.MemberNumberSpecific)</em></b>
+        </div>
         <hr />
-        @Html.DisplayFor(model => model.MajorCode)
-        @Html.DisplayFor(model => model.MajName)
+        <div>
+            Результаты голосования по вопросу ходатайства о присуждении степени доктора философии (PhD)
+            <br /> <strong>
+                @Html.DisplayFor(model => model.LName)
+                @Html.DisplayFor(model => model.FName)
+                @Html.DisplayFor(model => model.MName)
+            </strong>
+            <br />
+        </div>
+        <strong>«За»</strong>
+        <b><em>@Html.DisplayFor(model => model.PositiveVoteQuantity)</em></b>
         <hr />
-        Состав диссертационного совета утвержден в количестве
-        @Html.DisplayFor(model => model.OverallVoteQuantity)
-        Присутствовало на заседании
-        @Html.DisplayFor(model => model.OverallVoteQuantity)
-        членов совета, в том числе по профилю рассматриваемой диссертации _________
+        <strong> «Против» </strong>
+        <b><em>@Html.DisplayFor(model => model.NegativeVoteQuantity)</em></b>
         <hr />
-        Результаты голосования по вопросу ходатайства о присуждении степени доктора философии (PhD)
+        <div>       Председатель счетной комиссии  ____________________________________________________________ </div>
+        <div>       Члены комиссии                 ____________________________________________________________ </div>
+        <div>                                      ____________________________________________________________ </div>
+        <div>                                      ____________________________________________________________ </div>
+        <div>                                      ____________________________________________________________ </div>
+        <div>                                      ____________________________________________________________ </div>
+        <div>                                      ____________________________________________________________ </div>
         <hr />
-        @Html.DisplayFor(model => model.LName)
-        @Html.DisplayFor(model => model.FName)
-        @Html.DisplayFor(model => model.MName)
-        <hr />
-
-        «за»
-        @Html.DisplayFor(model => model.PositiveVoteQuantity)
-        <hr />
-        «против»
-        @Html.DisplayFor(model => model.PositiveVoteQuantity)
-        <hr />
-        Председатель счетной комиссии  _____________          ______________
-        <hr />        <hр />
-
-        Члены комиссии 			______________            ________________
-    
-    </div>
-
-
-
-
-
-<div>
-    <a asp-action="Index">Назад к списку</a> |
-</div>
+        </body >

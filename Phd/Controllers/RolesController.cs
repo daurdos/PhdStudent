@@ -59,10 +59,10 @@ namespace Phd.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "admin")]
+       [Authorize(Roles = "admin")]
         public IActionResult UserList() => View(_userManager.Users.ToList());
 
-        [Authorize(Roles = "admin")]
+       [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя
@@ -111,23 +111,6 @@ namespace Phd.Controllers
 
             return NotFound();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

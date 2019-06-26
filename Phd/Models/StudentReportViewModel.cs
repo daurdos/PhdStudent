@@ -14,8 +14,10 @@ namespace Phd.Models
         public int NegativeVoteQuantity { get; set; }
         public int OverallVoteQuantity { get; set; }
         public string MajName { get; set; }
-        public string MajorCode { get; set; }
+        public string MajCode { get; set; }
         public string DisNameRus { get; set; }
+        public int MemberNumberTotal { get; set; }
+        public int MemberNumberSpecific { get; set; }
         public DateTime ReleaseDate { get; set; }
     }
 }
