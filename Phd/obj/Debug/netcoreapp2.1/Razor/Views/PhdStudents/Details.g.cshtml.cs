@@ -62,7 +62,7 @@ using Phd.Models;
 #line default
 #line hidden
             BeginContext(79, 1142, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b0e7572143874c5a8ae4d8dd3f3decad", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3da0f8c718904c23bb45e82a180111da", async() => {
                 BeginContext(102, 324, true);
                 WriteLiteral(@"
 
@@ -153,7 +153,7 @@ using Phd.Models;
             WriteLiteral("\r\n\r\n\r\n\r\n\r\n\r\n    <div>\r\n        ");
             EndContext();
             BeginContext(1252, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "942d937876284131ba264b01f6baa5de", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c958b984566492ba8b5847965c99e29", async() => {
                 BeginContext(1274, 14, true);
                 WriteLiteral("Назад к списку");
                 EndContext();

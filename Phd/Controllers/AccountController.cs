@@ -92,6 +92,8 @@ namespace Phd.Controllers
             }
             return View(model);
         }
+        /*
+         //с методом пост по правилам должна использоваться форма, поэтому после того как отрисуется кнопка, необходимо метод ниже вернуть в лейаут.
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -106,7 +108,28 @@ namespace Phd.Controllers
 
 
 
+            /*
+             *                     @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <br />
+                            <form method="post" asp-controller="Account" asp-action="LogOff">
+                                <input type="submit" value="Выход" />
+                            </form>
+                        </li>
+                    }
+             
+          */
 
+
+
+           // [HttpGet]
+        public async Task<IActionResult> LogOff()
+        {
+            // удаляем аутентификационные куки
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
 
 
 

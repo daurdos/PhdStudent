@@ -67,7 +67,7 @@ using Phd.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(91, 48, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acd080d8cc5d4b2fa9a5b48eadfde30f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d00702cd61e04b4eaf217f6ffaabd469", async() => {
                 BeginContext(114, 21, true);
                 WriteLiteral("Добавить пользователя");
                 EndContext();
@@ -138,12 +138,12 @@ using Phd.Models;
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(453, 463, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "768c05385c2048c7b2253337987dd3a8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2b712e9f95c94cc6ac5ee5fd2b0c3c59", async() => {
                 BeginContext(517, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(539, 88, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6fc44404cb54e29b1ee03c7c610270f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11e7336b54e04211af9c743698a81f3c", async() => {
                     BeginContext(615, 8, true);
                     WriteLiteral("Изменить");
                     EndContext();
@@ -179,7 +179,7 @@ using Phd.Models;
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(649, 104, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "34fd41705b4a4e60b77b8da9884d2596", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da3aa8395ba64024ac441d93e173097e", async() => {
                     BeginContext(735, 14, true);
                     WriteLiteral("Сменить пароль");
                     EndContext();

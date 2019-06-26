@@ -74,11 +74,24 @@
                 @Html.DisplayFor(modelItem => item.ThesisComDate)
             </td>
             <td>
-                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
-                <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@item.Id">Бюллетень</a>
-                <a class="btn btn-sm btn-primary" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-                <a class="btn btn-sm btn-primary" asp-action="CreateVote" asp-route-id="@item.Id">Голосовать</a>
-                <a class="btn btn-sm btn-primary" asp-action="GetReportsAsync" asp-route-id="@item.Id">Результаты</a>
+                @if (User.IsInRole("moderator"))
+                {
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
+                    <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@item.Id">Бюллетень</a>
+                    <a class="btn btn-sm btn-primary" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                    <a class="btn btn-sm btn-primary" asp-action="CreateVote" asp-route-id="@item.Id">Голосовать</a>
+                    <a class="btn btn-sm btn-primary" asp-action="GetReportsAsync" asp-route-id="@item.Id">Результаты</a>
+                }
+
+                @if (User.IsInRole("user"))
+                {
+                    <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@item.Id">Бюллетень</a>
+                    <a class="btn btn-sm btn-primary" asp-action="CreateVote" asp-route-id="@item.Id">Голосовать</a>
+                }
+
+
+
+
             </td>
         </tr>
         }
