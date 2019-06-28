@@ -40,17 +40,15 @@
                         @if ((User.IsInRole("moderator")) || (User.IsInRole("user")))
                         {
                             <li><a asp-area="" asp-controller="PhdStudents" asp-action="Index">Голосование</a></li>
-                        }
-
-                        @if (User.IsInRole("admin"))
-                        {
-                            <li><a asp-area="" asp-controller="Users" asp-action="Index">Управление пользователями</a></li>
-                        }
-
-                        @if (User.IsInRole("admin"))
-                        {
                             <li><a asp-area="" asp-controller="Roles" asp-action="Index">Управление ролями</a></li>
                         }
+                        else if (User.IsInRole("admin"))
+                        {
+                            <li><a asp-area="" asp-controller="Users" asp-action="Index">Управление пользователями</a></li>
+                            <li><a asp-area="" asp-controller="Roles" asp-action="Index">Управление ролями</a></li>
+                        }
+
+
 
                         <li><a asp-area="" asp-controller="Home" asp-action="About">О системе</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Контакты</a></li>
@@ -58,6 +56,7 @@
                         <li><a asp-area="" asp-controller="Account" asp-action="LogOff" asp-method="post">Выход</a></li>
 
                     }
+
                     else
                     {
                         <li><a asp-area="" asp-controller="Home" asp-action="Index">Домой</a></li>
@@ -66,15 +65,6 @@
                         <li><a asp-area="" asp-controller="Home" asp-action="About">О системе</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Контакты</a></li>
                     }
-
-
-
-
-                    
-
-
-
-
 
 
 

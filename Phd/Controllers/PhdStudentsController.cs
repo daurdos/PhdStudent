@@ -19,6 +19,7 @@ namespace Phd.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = "moderator, user")]
         // GET: PhdStudents
         public async Task<IActionResult> Index(string majorCode, string searchString)
         {
@@ -51,13 +52,14 @@ namespace Phd.Controllers
             return View(majorCodeVM);
         }
 
+        [Authorize(Roles = "moderator, user")]
         [HttpPost]
         public string Index(string searchString, bool notUsed)
         {
             return "From [HttpPost]Index: filter on " + searchString;
         }
 
-
+        [Authorize(Roles = "moderator, user")]
         // GET: PhdStudents/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -76,7 +78,7 @@ namespace Phd.Controllers
             return View(phdStudent);
         }
 
-        [Authorize(Roles = "moderator")]
+       // [Authorize(Roles = "moderator")]
         // GET: PhdStudents/Create
         public IActionResult Create()
         {
@@ -118,7 +120,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "user")]
+        [Authorize(Roles = "moderator, user")]
         public IActionResult CreateVote(int id)
         {
             ViewBag.Id = id;
@@ -126,7 +128,7 @@ namespace Phd.Controllers
         }
 
 
-        [Authorize(Roles = "user")]
+        [Authorize(Roles = "moderator, user")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateVote([Bind("PhdStudentId,Voice")] Vote vote)
@@ -377,7 +379,7 @@ namespace Phd.Controllers
         [Authorize(Roles = "moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Fname,Lname,Mname,MajName,DisNameKaz,DisNameRus,DisNameEng,ReleaseDate,MajorCode")] PhdStudent phdStudent)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LastName,FirstName,MiddleName,MajorCode,MajorName,ThesisNameRus,ThesisComDate,ComMemberNumberTotal,ComMemberNumberSpecific")] PhdStudent phdStudent)
         {
             if (id != phdStudent.Id)
             {

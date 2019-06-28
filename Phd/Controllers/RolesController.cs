@@ -19,6 +19,8 @@ namespace Phd.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+
+        [Authorize(Roles = "admin, moderator")]
         public IActionResult Index() => View(_roleManager.Roles.ToList());
 
         [Authorize(Roles = "admin")]
@@ -47,6 +49,8 @@ namespace Phd.Controllers
         }
 
 
+
+
         [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
@@ -59,10 +63,10 @@ namespace Phd.Controllers
             return RedirectToAction("Index");
         }
 
-       [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, moderator")]
         public IActionResult UserList() => View(_userManager.Users.ToList());
 
-       [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, moderator")]
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя
@@ -71,7 +75,8 @@ namespace Phd.Controllers
             {
                 // получем список ролей пользователя
                 var userRoles = await _userManager.GetRolesAsync(user);
-                var allRoles = _roleManager.Roles.ToList();
+                 var allRoles = _roleManager.Roles.ToList();
+
                 ChangeRoleViewModel model = new ChangeRoleViewModel
                 {
                     UserId = user.Id,
@@ -85,7 +90,9 @@ namespace Phd.Controllers
             return NotFound();
         }
 
-        [Authorize(Roles = "admin")]
+
+
+        [Authorize(Roles = "admin, moderator")]
         [HttpPost]
         public async Task<IActionResult> Edit(string userId, List<string> roles)
         {
@@ -95,10 +102,13 @@ namespace Phd.Controllers
             {
                 // получем список ролей пользователя
                 var userRoles = await _userManager.GetRolesAsync(user);
+
                 // получаем все роли
                 var allRoles = _roleManager.Roles.ToList();
+ 
                 // получаем список ролей, которые были добавлены
                 var addedRoles = roles.Except(userRoles);
+
                 // получаем роли, которые были удалены
                 var removedRoles = userRoles.Except(roles);
 

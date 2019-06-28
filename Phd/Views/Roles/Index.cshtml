@@ -16,5 +16,15 @@
         </tr>
     }
 </table>
-<a asp-action="Create">Добавить роль</a>
-<a asp-action="UserList">Список пользователей</a>
+
+@if (User.Identity.IsAuthenticated)
+{
+    @if (User.IsInRole("moderator"))
+    {
+        <a asp-action="UserList">Список пользователей</a>
+    }
+    else if (User.IsInRole("admin"))
+    {
+        <a asp-action="Create">Добавить роль</a>
+    }
+}

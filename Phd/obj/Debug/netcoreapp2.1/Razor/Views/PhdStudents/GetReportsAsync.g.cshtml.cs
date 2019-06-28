@@ -63,7 +63,7 @@ using Phd.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(97, 2613, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b4523987216344beb91a9fdf42e41d2e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c42e6908bfc4ccfbbdd742002a5befb", async() => {
                 BeginContext(118, 161, true);
                 WriteLiteral("\r\n        <p><h3>РЕЗУЛЬТАТЫ ТАЙНОГО ГОЛОСОВАНИЯ</h3></p>\r\n        <hr />\r\n        <div><h3>по диссертации<h3></div>\r\n        <br />\r\n        <div><strong><b><em>");
                 EndContext();

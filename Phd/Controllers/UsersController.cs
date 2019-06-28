@@ -19,6 +19,7 @@ namespace Phd.Controllers
             _userManager = userManager;
         }
 
+        [Authorize(Roles = "admin")]
         public IActionResult Index() => View(_userManager.Users.ToList());
 
         [Authorize(Roles = "admin")]
@@ -115,7 +116,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "admin")]
+      //  [Authorize(Roles = "admin")]
         public async Task<IActionResult> ChangePassword(string id)
         {
             User user = await _userManager.FindByIdAsync(id);
@@ -127,7 +128,7 @@ namespace Phd.Controllers
             return View(model);
         }
 
-        [Authorize(Roles = "admin")]
+     //  [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
         {
