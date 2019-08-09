@@ -20,13 +20,13 @@ namespace Phd.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "admin, moderator")]
+        //[Authorize(Roles = "admin, moderator")]
         public IActionResult Index() => View(_roleManager.Roles.ToList());
 
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         public IActionResult Create() => View();
 
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> Create(string name)
         {
@@ -63,10 +63,10 @@ namespace Phd.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "admin, moderator")]
+       // [Authorize(Roles = "admin, moderator")]
         public IActionResult UserList() => View(_userManager.Users.ToList());
 
-        [Authorize(Roles = "admin, moderator")]
+      //  [Authorize(Roles = "admin, moderator")]
         public async Task<IActionResult> Edit(string userId)
         {
             // получаем пользователя
@@ -92,7 +92,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "admin, moderator")]
+      //  [Authorize(Roles = "admin, moderator")]
         [HttpPost]
         public async Task<IActionResult> Edit(string userId, List<string> roles)
         {

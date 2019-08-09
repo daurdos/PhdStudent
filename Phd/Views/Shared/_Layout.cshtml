@@ -37,10 +37,14 @@
 
                         <li><a asp-area="" asp-controller="Home" asp-action="Index">Домой</a></li>
 
-                        @if ((User.IsInRole("moderator")) || (User.IsInRole("user")))
+                        @if (User.IsInRole("moderator"))
                         {
                             <li><a asp-area="" asp-controller="PhdStudents" asp-action="Index">Голосование</a></li>
                             <li><a asp-area="" asp-controller="Roles" asp-action="Index">Управление ролями</a></li>
+                        }
+                        else if (User.IsInRole("user"))
+                        {
+                            <li><a asp-area="" asp-controller="PhdStudents" asp-action="Index">Голосование</a></li>
                         }
                         else if (User.IsInRole("admin"))
                         {
@@ -80,7 +84,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2019 - Институт цифровизации</p>
+            <p>&copy; 2019 - Институт цифровизации v2.0</p>
         </footer>
     </div>
 

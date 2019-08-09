@@ -38,8 +38,18 @@ namespace Phd.Models
 
         [Display(Name = "Членов совета по специальности")]
         public int ComMemberNumberSpecific { get; set; }
-               
+
+        [Display(Name = "Направление подготовки кадров")]
+        public string EducationDirection { get; set; }
+
         public ICollection<Vote> Vote { get; set; }
+        public int MajorId { get; set; }
+
+        public Major Major { get; set; }
+
+        public int TrainingDirectionId { get; set; }
+
+        public TrainingDirection TrainingDirection { get; set; }
 
     }
 }

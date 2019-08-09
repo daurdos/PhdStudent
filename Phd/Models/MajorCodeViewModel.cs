@@ -8,8 +8,10 @@ namespace Phd.Models
     public class MajorCodeViewModel
     {
         public List<PhdStudent> PhdStudents { get; set; }
-        public SelectList Codes { get; set; }
-        public string MajorCode { get; set; }
+        public SelectList Cyphers { get; set; }
+        public string MajorCypher{ get; set; }
+
+        public string SearchString { get; set; }
 
         // <summary>
 
@@ -36,17 +38,25 @@ namespace Phd.Models
         [DataType(DataType.Date)]
         public DateTime ThesisComDate { get; set; }
 
+
+
+
+
+
         [Display(Name = "Всего членов совета")]
         public int ComMemberNumberTotal { get; set; }
 
         [Display(Name = "Членов совета по специальности")]
         public int ComMemberNumberSpecific { get; set; }
 
+        [Display(Name = "Направление подготовки кадров")]
+        public string EducationDirection { get; set; }
+
 
 
 
         // </summary>
 
-        public string SearchString { get; set; }
+
     }
 }

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Phd.Models;
 using Phd.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace Phd.Controllers
 {

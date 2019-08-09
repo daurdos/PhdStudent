@@ -78,7 +78,7 @@ using Phd.Models;
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(234, 227, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55f11f2f02bf43028baee216414bf783", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fba479dd51044fefa2de09bb7ec27a4f", async() => {
                 BeginContext(298, 156, true);
                 WriteLiteral("\r\n                    <button type=\"submit\" class=\"btn btn-sm btn-danger\">\r\n                        Удалить\r\n                    </button>\r\n                ");
                 EndContext();
@@ -141,7 +141,7 @@ using Phd.Models;
             WriteLiteral("        ");
             EndContext();
             BeginContext(609, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e73639a332b4466896729ce1872e4a30", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea591929eaae4d67984db5c2d97882b0", async() => {
                 BeginContext(634, 20, true);
                 WriteLiteral("Список пользователей");
                 EndContext();
@@ -173,7 +173,7 @@ using Phd.Models;
             WriteLiteral("        ");
             EndContext();
             BeginContext(720, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6c7212d8814547aab013c2ebd4c2777f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fcb1dc0971bd4c5b82fbd9c0b0e2bd74", async() => {
                 BeginContext(743, 13, true);
                 WriteLiteral("Добавить роль");
                 EndContext();
