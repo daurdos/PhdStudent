@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Phd.Models;
 
 namespace Phd.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public HomeController(UserManager<User> userManager, SignInManager<User> signInManager, PhdContext context, RoleManager<IdentityRole> roleManager = null) : base(userManager, signInManager, context, roleManager)
+        {
+        }
+
         public IActionResult Index()
         {
             return View();

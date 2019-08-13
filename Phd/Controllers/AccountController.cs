@@ -11,6 +11,7 @@ namespace Phd.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<User> _userManager;
+        //private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<User> _signInManager;
 
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
@@ -68,7 +69,7 @@ namespace Phd.Controllers
 
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, LastName = model.LastName, FirstName = model.FirstName, MiddleName = model.MiddleName };
+                User user = new User { Email = model.Email, UserName = model.Email, LastName = model.LastName, FirstName = model.FirstName, MiddleName = model.MiddleName, DisCouncilId = model.DisCouncilId };
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

@@ -23,8 +23,13 @@ using Phd.Models;
 
 #line default
 #line hidden
+#line 3 "C:\Users\ENU\source\repos\Phd\Phd\Views\_ViewImports.cshtml"
+using Phd.Extensions;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dba7f5e1c8d262095e7b81484fa7a180a52e9d57", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b5862ab1a422bd0536ad6439e39af672552c68ee", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d509074c38fff28e921a6c60bcb29c5c4aabcf20", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

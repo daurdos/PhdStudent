@@ -23,8 +23,13 @@ using Phd.Models;
 
 #line default
 #line hidden
+#line 3 "C:\Users\ENU\source\repos\Phd\Phd\Views\_ViewImports.cshtml"
+using Phd.Extensions;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a853ec9e9b770e6545633caa62abf40440b0ddb9", @"/Views/PhdStudents/GetReportsAsync.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b5862ab1a422bd0536ad6439e39af672552c68ee", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d509074c38fff28e921a6c60bcb29c5c4aabcf20", @"/Views/_ViewImports.cshtml")]
     public class Views_PhdStudents_GetReportsAsync : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Phd.Models.StudentReportViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("align", new global::Microsoft.AspNetCore.Html.HtmlString("center"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -63,7 +68,7 @@ using Phd.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(97, 3036, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7f1d73bfc55e4f0ba612e6bf88d96e89", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e78ac34677d148c991aa2acc270873c6", async() => {
                 BeginContext(118, 174, true);
                 WriteLiteral("\r\n        <p><h3>РЕЗУЛЬТАТЫ ТАЙНОГО ГОЛОСОВАНИЯ</h3></p>\r\n        <hr />\r\n        <div><h3>по диссертации докторанта: <h3></div>\r\n        <br />\r\n        <div><strong><b><em>");
                 EndContext();

@@ -42,14 +42,31 @@ namespace Phd.Models
         [Display(Name = "Направление подготовки кадров")]
         public string EducationDirection { get; set; }
 
-        public ICollection<Vote> Vote { get; set; }
-        public int MajorId { get; set; }
 
-        public Major Major { get; set; }
 
-        public int TrainingDirectionId { get; set; }
+        public ICollection<Vote> Vote { get; set; } // one PhdStudent - many Votes
 
-        public TrainingDirection TrainingDirection { get; set; }
+
+
+        public int MajorId { get; set; } // many PhdStudents - one Major
+
+        public Major Major { get; set; } // many PhdStudents - one Major
+
+
+
+        public int TrainingDirectionId { get; set; } // many PhdStudents - one TrainingDirection
+
+        public TrainingDirection TrainingDirection { get; set; } // many PhdStudents - one TrainingDirection
+
+
+        
+        public int DisCouncilId { get; set; } // many PhdStudents - one Dissertation Council
+
+        public DisCouncil DisCouncil { get; set; } // many PhdStudents - one Dissertation Council
+
+    
+
+
 
     }
 }

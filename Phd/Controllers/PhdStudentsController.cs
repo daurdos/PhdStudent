@@ -13,36 +13,56 @@ using Phd.Models;
 namespace Phd.Controllers
 {
 
-    public class PhdStudentsController : Controller
+    public class PhdStudentsController : BaseController
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-        private readonly PhdContext _context;
-
-        public PhdStudentsController(UserManager<User> userManager, SignInManager<User> signInManager, PhdContext context)
+        public PhdStudentsController(UserManager<User> userManager, SignInManager<User> signInManager, PhdContext context) : base(userManager, signInManager, context)
         {
-            _context = context;
-            _userManager = userManager;
-            _signInManager = signInManager;
         }
 
-
-
-
-
-
-        [Authorize(Roles = "moderator, user")]
+        [Authorize(Roles = "moderator, user, admin")]
         // GET: PhdStudents
 
-        public async Task<IActionResult> Index(/*string majorCode, */ string searchString)
+        public async Task<IActionResult> Index(string majorCode,  string searchString)
         {
+
+            /*
+            if (IsAdmin())
+            {
+                return View(await Context.PhdStudent.Include(p => p.Major).Include(p => p.TrainingDirection).ToListAsync());
+            }
+            else
+            {
+
+                return View(await Context.PhdStudent.Where(x => x.DisCouncilId == GetUser().DisCouncilId).Include(p => p.Major).Include(p => p.TrainingDirection).ToListAsync());
+            }
+            */
+
+            var students = Context.PhdStudent.Include(p => p.Major).Include(p => p.TrainingDirection).AsEnumerable();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper()));
+            }
+            if (!String.IsNullOrEmpty(majorCode))
+            {
+                students = students.Where(s => s.Major.MajorCypher == majorCode);
+            }
+
+            if (IsAdmin())
+            {
+                return View(students.ToList());
+            }
+            else
+            {
+
+                return View(students.Where(x => x.DisCouncilId == GetUser().DisCouncilId).ToList());
+            }
+
+
+
+
             //var phdStudents = await _context.PhdStudent.Include(p => p.Major).ToListAsync();
-            var phdStudents = await _context.PhdStudent.Include(p => p.Major).Include(p => p.TrainingDirection).ToListAsync();
 
-
-
-
-            return View(phdStudents);
 
             /*
             IQueryable<string> codeQuery = from m in _context.PhdStudent
@@ -53,10 +73,7 @@ namespace Phd.Controllers
                 var phdStudents = from m in _context.PhdStudent
                          select m;
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                phdStudents = phdStudents.Where(s => s.LastName.Contains(searchString));
-            }
+
 
             ///////////////////
 
@@ -73,7 +90,7 @@ namespace Phd.Controllers
 
             return View(majorCodeVM);
             */
-            
+
         }
 
 
@@ -98,7 +115,7 @@ namespace Phd.Controllers
                 return NotFound();
             }
             */
-            var phdStudent = await _context.PhdStudent.Include(p => p.Vote).Include(p => p.Major).Include(p => p.TrainingDirection).FirstOrDefaultAsync(p => p.Id == id);
+            var phdStudent = await Context.PhdStudent.Include(p => p.Vote).Include(p => p.Major).Include(p => p.TrainingDirection).FirstOrDefaultAsync(p => p.Id == id);
             //var phdStudent = await _context.PhdStudent.FirstOrDefaultAsync(m => m.Id == id);
             ViewBag.Id = id;
 
@@ -139,14 +156,14 @@ namespace Phd.Controllers
             List<Major> majorList = new List<Major>();
             List<TrainingDirection> trainingDirectionList = new List<TrainingDirection>();
 
-            majorList = (from major in _context.Major
+            majorList = (from major in Context.Major
                             select major).ToList();
 
             majorList.Insert(0, new Major { Id = 0, MajorCypher = "Select" });
 
             ViewBag.ListOfMajor = majorList;
 
-            trainingDirectionList = (from trainingDirection in _context.TrainingDirection
+            trainingDirectionList = (from trainingDirection in Context.TrainingDirection
                                      select trainingDirection).ToList();
 
             trainingDirectionList.Insert(0, new TrainingDirection { Id = 0, TrainingDirectionCypher = "Select" });
@@ -175,15 +192,15 @@ namespace Phd.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-        [Authorize(Roles = "moderator")]
+        //[Authorize(Roles = "moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,LastName,FirstName,MiddleName,MajorCode,MajorName,ThesisNameRus,ThesisComDate,ComMemberNumberTotal,ComMemberNumberSpecific,EducationDirection,MajorId,TrainingDirectionId")] PhdStudent phdStudent)
+        public async Task<IActionResult> Create([Bind("Id,LastName,FirstName,MiddleName,MajorCode,MajorName,ThesisNameRus,ThesisComDate,ComMemberNumberTotal,ComMemberNumberSpecific,EducationDirection,MajorId,TrainingDirectionId,DisCouncilId")] PhdStudent phdStudent)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(phdStudent);
-                await _context.SaveChangesAsync();
+                Context.Add(phdStudent);
+                await Context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(phdStudent);
@@ -222,9 +239,9 @@ namespace Phd.Controllers
             if (ModelState.IsValid)
             {
 
-                _context.Add(vote);
-                await _context.SaveChangesAsync();
-                await _signInManager.SignOutAsync(); // пользователь выходит после голосования
+                Context.Add(vote);
+                await Context.SaveChangesAsync();
+                await SingInManager.SignOutAsync(); // пользователь выходит после голосования
 
                 return RedirectToAction(nameof(Index));
             }
@@ -359,7 +376,7 @@ namespace Phd.Controllers
         [Authorize(Roles = "moderator")]
         public IActionResult VoteResult(int? id)
         {
-            var resultAll = _context.Vote.Count(p => p.PhdStudentId == id);
+            var resultAll = Context.Vote.Count(p => p.PhdStudentId == id);
             ViewBag.Vote = resultAll;
             return View(resultAll);
         }
@@ -387,7 +404,7 @@ namespace Phd.Controllers
         public async Task<IActionResult> GetReportsAsync(int id)
         {
             //var student = await _context.PhdStudent.Include(x => x.Vote).FirstOrDefaultAsync(x => x.Id == id);
-            var student = await _context.PhdStudent.Include(x => x.Vote).Include(p => p.Major).Include(p => p.TrainingDirection).FirstOrDefaultAsync(x => x.Id == id);
+            var student = await Context.PhdStudent.Include(x => x.Vote).Include(p => p.Major).Include(p => p.TrainingDirection).FirstOrDefaultAsync(x => x.Id == id);
 
 
 
@@ -460,7 +477,7 @@ namespace Phd.Controllers
                 return NotFound();
             }
 
-            var phdStudent = await _context.PhdStudent.FindAsync(id);
+            var phdStudent = await Context.PhdStudent.FindAsync(id);
             if (phdStudent == null)
             {
                 return NotFound();
@@ -487,8 +504,8 @@ namespace Phd.Controllers
             {
                 try
                 {
-                    _context.Update(phdStudent);
-                    await _context.SaveChangesAsync();
+                    Context.Update(phdStudent);
+                    await Context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -515,7 +532,7 @@ namespace Phd.Controllers
                 return NotFound();
             }
 
-            var phdStudent = await _context.PhdStudent
+            var phdStudent = await Context.PhdStudent
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (phdStudent == null)
             {
@@ -532,15 +549,15 @@ namespace Phd.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var phdStudent = await _context.PhdStudent.FindAsync(id);
-            _context.PhdStudent.Remove(phdStudent);
-            await _context.SaveChangesAsync();
+            var phdStudent = await Context.PhdStudent.FindAsync(id);
+            Context.PhdStudent.Remove(phdStudent);
+            await Context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PhdStudentExists(int id)
         {
-            return _context.PhdStudent.Any(e => e.Id == id);
+            return Context.PhdStudent.Any(e => e.Id == id);
         }
     }
 }

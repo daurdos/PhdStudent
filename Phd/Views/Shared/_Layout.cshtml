@@ -46,7 +46,7 @@
                         {
                             <li><a asp-area="" asp-controller="PhdStudents" asp-action="Index">Голосование</a></li>
                         }
-                        else if (User.IsInRole("admin"))
+                        else if (User.IsAdmin())
                         {
                             <li><a asp-area="" asp-controller="Users" asp-action="Index">Управление пользователями</a></li>
                             <li><a asp-area="" asp-controller="Roles" asp-action="Index">Управление ролями</a></li>

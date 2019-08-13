@@ -151,3 +151,8 @@ C:\Users\ENU\source\repos\Phd\Phd\Phd\obj\Debug\netcoreapp2.1\Phd.RazorTargetAss
 C:\Users\ENU\source\repos\Phd\Phd\Phd\obj\Debug\netcoreapp2.1\Phd.RazorTargetAssemblyInfo.cs
 C:\Users\ENU\source\repos\Phd\Phd\Phd\obj\Debug\netcoreapp2.1\Phd.Views.pdb
 C:\Users\ENU\source\repos\Phd\Phd\Phd\obj\Debug\netcoreapp2.1\Phd.csproj.CopyComplete
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\DisCouncils\Create.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\DisCouncils\Delete.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\DisCouncils\Details.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\DisCouncils\Edit.g.cshtml.cs
+C:\Users\ENU\source\repos\Phd\Phd\obj\Debug\netcoreapp2.1\Razor\Views\DisCouncils\Index.g.cshtml.cs

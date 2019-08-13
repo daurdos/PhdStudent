@@ -23,8 +23,13 @@ using Phd.Models;
 
 #line default
 #line hidden
+#line 3 "C:\Users\ENU\source\repos\Phd\Phd\Views\_ViewImports.cshtml"
+using Phd.Extensions;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"929e49620346e9bcca0dfde67b4f90c3c38eb145", @"/Views/PhdStudents/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b5862ab1a422bd0536ad6439e39af672552c68ee", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d509074c38fff28e921a6c60bcb29c5c4aabcf20", @"/Views/_ViewImports.cshtml")]
     public class Views_PhdStudents_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Phd.Models.StudentReportViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "CreateVote", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -73,7 +78,7 @@ using Phd.Models;
             WriteLiteral("\r\n\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"ru\">\r\n");
             EndContext();
             BeginContext(134, 17, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "378872aa64004ac1b418bbaaa40192cf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7dcc75c7aba843f0ac7ba85c17598809", async() => {
                 BeginContext(140, 4, true);
                 WriteLiteral("\r\n\r\n");
                 EndContext();
@@ -93,12 +98,12 @@ using Phd.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(153, 4181, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc53b82c4ac2461d83c58d5b31deb47a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71989947236c410fb2cd24f533df6ec3", async() => {
                 BeginContext(159, 176, true);
                 WriteLiteral("\r\n\r\n\r\n\r\n    <div class=\"container\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-10 offset-md-1\">\r\n                <div class=\"form-border\">\r\n                    ");
                 EndContext();
                 BeginContext(335, 3209, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "100b71c063f14a7182d28c80d934c392", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a1e279af1e547bb9f1edc874ebc3800", async() => {
                     BeginContext(383, 253, true);
                     WriteLiteral("\r\n                        <h4 class=\"text-center\">БЮЛЛЕТЕНЬ</h4>\r\n                        <p class=\"text-center\">к заседанию Диссертационного совета по направлению подготовки кадров</p>\r\n                        <center>\r\n                            <em>");
                     EndContext();
@@ -221,7 +226,7 @@ using Phd.Models;
                                                 ");
                     EndContext();
                     BeginContext(3088, 69, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a65fb5cf439d4cb49d4983a0b54580c4", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a70b7c779ab243d0a54c710136b22ba2", async() => {
                         BeginContext(3142, 11, true);
                         WriteLiteral("Голосовать ");
                         EndContext();

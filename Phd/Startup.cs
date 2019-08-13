@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Phd.Data;
 
 namespace Phd
 {
@@ -44,7 +45,6 @@ namespace Phd
                 .AddEntityFrameworkStores<PhdContext>();
 
             services.AddMvc();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

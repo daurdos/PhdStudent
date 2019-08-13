@@ -16,6 +16,7 @@ namespace Phd.Models
 
         public DbSet<Phd.Models.Major> Major { get; set; }
         public DbSet<Phd.Models.TrainingDirection> TrainingDirection {get; set; }
+        public DbSet<Phd.Models.DisCouncil> DisCouncil { get; set; }
 
         /*
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

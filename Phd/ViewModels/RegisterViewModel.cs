@@ -29,5 +29,8 @@ namespace Phd.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = "Подтвердить пароль")]
         public string PasswordConfirm { get; set; }
+
+
+        public int DisCouncilId { get; set; } // добавлено вместе с Жанегельды№
     }
 }

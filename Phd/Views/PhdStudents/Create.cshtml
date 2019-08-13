@@ -1,4 +1,4 @@
-﻿@model Phd.ViewModels.CreateUpdateStudentViewModel
+﻿@model Phd.Models.PhdStudent
 
 @{
     ViewData["Title"] = "Create";
@@ -13,33 +13,30 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="PhdStudent.LastName" class="control-label"></label>
-                <input asp-for="PhdStudent.LastName" class="form-control" />
-                <span asp-validation-for="PhdStudent.LastName" class="text-danger"></span>
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhdStudent.FirstName" class="control-label"></label>
-                <input asp-for="PhdStudent.FirstName" class="form-control" />
-                <span asp-validation-for="PhdStudent.FirstName" class="text-danger"></span>
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhdStudent.MiddleName" class="control-label"></label>
-                <input asp-for="PhdStudent.MiddleName" class="form-control" />
-                <span asp-validation-for="PhdStudent.MiddleName" class="text-danger"></span>
+                <label asp-for="MiddleName" class="control-label"></label>
+                <input asp-for="MiddleName" class="form-control" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
             </div>
-            
-            
-            
+
+
+
             <!--
-            <div class="form-group">
-                <label asp-for="PhdStudent.EducationDirection" class="control-label"></label>
-                <input asp-for="PhdStudent.EducationDirection" class="form-control" />
-                <span asp-validation-for="PhdStudent.EducationDirection" class="text-danger"></span>
-            </div>
-            -->
-
-
-
+    <div class="form-group">
+        <label asp-for="EducationDirection" class="control-label"></label>
+        <input asp-for="EducationDirection" class="form-control" />
+        <span asp-validation-for="EducationDirection" class="text-danger"></span>
+    </div>
+    -->
             <!--
 
     <div class="form-group">
@@ -59,35 +56,42 @@
 
 
             <div class="form-group">
-                <label asp-for="PhdStudent.MajorId" class="control-label"></label>
-                <select asp-for="PhdStudent.MajorId"
+                <label asp-for="MajorId" class="control-label"></label>
+                <select asp-for="MajorId"
                         class="form-control"
                         asp-items="@(new SelectList(@ViewBag.ListOfMajor, "Id", "MajorCypher"))"></select>
             </div>
 
             <div class="form-group">
-                <label asp-for="PhdStudent.TrainingDirectionId" class="control-label"></label>
-                <select asp-for="PhdStudent.TrainingDirectionId"
+                <label asp-for="TrainingDirectionId" class="control-label"></label>
+                <select asp-for="TrainingDirectionId"
                         class="form-control"
                         asp-items="@(new SelectList(@ViewBag.ListOfTrainingDirection, "Id", "TrainingDirectionCypher"))"></select>
             </div>
 
 
             <div class="form-group">
-                <label asp-for="PhdStudent.ThesisNameRus" class="control-label"></label>
-                <input asp-for="PhdStudent.ThesisNameRus" class="form-control" />
-                <span asp-validation-for="PhdStudent.ThesisNameRus" class="text-danger"></span>
+                <label asp-for="ThesisNameRus" class="control-label"></label>
+                <input asp-for="ThesisNameRus" class="form-control" />
+                <span asp-validation-for="ThesisNameRus" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhdStudent.ThesisComDate" class="control-label"></label>
-                <input asp-for="PhdStudent.ThesisComDate" class="form-control" />
-                <span asp-validation-for="PhdStudent.ThesisComDate" class="text-danger"></span>
+                <label asp-for="ThesisComDate" class="control-label"></label>
+                <input asp-for="ThesisComDate" class="form-control" />
+                <span asp-validation-for="ThesisComDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhdStudent.ComMemberNumberTotal" class="control-label"></label>
-                <input asp-for="PhdStudent.ComMemberNumberTotal" class="form-control" />
-                <span asp-validation-for="PhdStudent.ComMemberNumberTotal" class="text-danger"></span>
+                <label asp-for="ComMemberNumberTotal" class="control-label"></label>
+                <input asp-for="ComMemberNumberTotal" class="form-control" />
+                <span asp-validation-for="ComMemberNumberTotal" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="DisCouncilId" class="control-label"></label><br />
+                <select asp-for="DisCouncilId" class="form-control"/>
+                <span asp-validation-for="DisCouncilId" class="text-danger"></span>
+            </div>
+
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -102,4 +106,9 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script type="text/javascript">
+
+        setDictionaryLists('@Url.Action("GetDisCouncils", "Dictionaries")', '#DisCouncilId');
+</script>
 }
+
