@@ -63,7 +63,7 @@ namespace Phd.Controllers
             return RedirectToAction("Index");
         }
 
-       // [Authorize(Roles = "admin, moderator")]
+        //[Authorize(Roles = "admin, moderator, Ученый секретарь")]
         public IActionResult UserList() => View(_userManager.Users.ToList());
 
       //  [Authorize(Roles = "admin, moderator")]

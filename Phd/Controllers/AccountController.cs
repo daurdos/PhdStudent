@@ -25,16 +25,20 @@ namespace Phd.Controllers
         public IActionResult Register()
         {
             return View();
+            
+
+
+
         }
 
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            /*
+            
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, LastName = model.LastName, FirstName = model.FirstName, MiddleName = model.MiddleName };
+                User user = new User { Email = model.Email, UserName = model.Email, LastName = model.LastName, FirstName = model.FirstName, MiddleName = model.MiddleName, DisCouncilId = model.DisCouncilId };
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -62,11 +66,11 @@ namespace Phd.Controllers
             }
 
             return View(model);
-            */
+            
 
 
             
-
+            /*
             if (ModelState.IsValid)
             {
                 User user = new User { Email = model.Email, UserName = model.Email, LastName = model.LastName, FirstName = model.FirstName, MiddleName = model.MiddleName, DisCouncilId = model.DisCouncilId };
@@ -74,9 +78,6 @@ namespace Phd.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-
-
-
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
@@ -89,8 +90,8 @@ namespace Phd.Controllers
                     }
                 }
             }
-            return View(model);
-            
+           return View(model);
+           */
         }
 
 
@@ -130,7 +131,7 @@ namespace Phd.Controllers
         {
 
             ///////////////////////
-            /*
+           
 
             if (ModelState.IsValid)
             {
@@ -138,11 +139,14 @@ namespace Phd.Controllers
                 if (user != null)
                 {
                     // проверяем, подтвержден ли email
-                    if (!await _userManager.IsEmailConfirmedAsync(user))
-                    {
-                        ModelState.AddModelError(string.Empty, "Вы не подтвердили свой email");
-                        return View(model);
-                    }
+
+                        if (!await _userManager.IsEmailConfirmedAsync(user))
+                        {
+                            ModelState.AddModelError(string.Empty, "Вы не подтвердили свой email");
+                            return View(model);
+                        }
+
+
                 }
 
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
@@ -158,9 +162,9 @@ namespace Phd.Controllers
             return View(model);
 
             ////////////////
-            */
+           
             
-
+            /*
             if (ModelState.IsValid)
             {
                 var result =
@@ -185,7 +189,7 @@ namespace Phd.Controllers
                 }
             }
             return View(model);
-            
+            */
         }
 
 
@@ -197,6 +201,84 @@ namespace Phd.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+
+
+
+
+
+
+        // восстановление пароля
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.Email);
+                if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
+                {
+                    // пользователь с данным email может отсутствовать в бд
+                    // тем не менее мы выводим стандартное сообщение, чтобы скрыть 
+                    // наличие или отсутствие пользователя в бд
+                    return View("ForgotPasswordConfirmation");
+                }
+
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                EmailService emailService = new EmailService();
+                await emailService.SendEmailAsync(model.Email, "Reset Password",
+                    $"Для сброса пароля пройдите по ссылке: <a href='{callbackUrl}'>link</a>");
+                return View("ForgotPasswordConfirmation");
+            }
+            return View(model);
+        }
+
+
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPassword(string code = null)
+        {
+            return code == null ? View("Error") : View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await _userManager.FindByNameAsync(model.Email);
+            if (user == null)
+            {
+                return View("ResetPasswordConfirmation");
+            }
+            var result = await _userManager.ResetPasswordAsync(user, model.Code, model.Password);
+            if (result.Succeeded)
+            {
+                return View("ResetPasswordConfirmation");
+            }
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            return View(model);
+        }
+
+
 
 
 

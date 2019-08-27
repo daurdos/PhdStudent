@@ -30,7 +30,7 @@ namespace Phd.ViewModels
         [Display(Name = "Подтвердить пароль")]
         public string PasswordConfirm { get; set; }
 
-
+        [Display(Name = "Диссовет")]
         public int DisCouncilId { get; set; } // добавлено вместе с Жанегельды№
     }
 }

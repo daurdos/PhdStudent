@@ -19,7 +19,7 @@ namespace Phd.Controllers
         {
         }
 
-        [Authorize(Roles = "moderator, user, admin")]
+        [Authorize(Roles = "moderator, user, admin, Ученый секретарь, Член диссовета")]
         // GET: PhdStudents
 
         public async Task<IActionResult> Index(string majorCode,  string searchString)
@@ -39,14 +39,30 @@ namespace Phd.Controllers
 
             var students = Context.PhdStudent.Include(p => p.Major).Include(p => p.TrainingDirection).AsEnumerable();
 
+            /*
             if (!String.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper()));
             }
-            if (!String.IsNullOrEmpty(majorCode))
+            */
+
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = from s in students
+                           where s.LastName.ToUpper().Contains(searchString.ToUpper())
+                           //orderby s  // если с этой строкой,
+                                        // то выдает ошибку
+                                        // ArgumentException: At least one object must implement IComparable.
+                           select s;
+            }
+            
+
+            else if (!String.IsNullOrEmpty(majorCode))
             {
                 students = students.Where(s => s.Major.MajorCypher == majorCode);
             }
+
 
             if (IsAdmin())
             {
@@ -95,7 +111,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "moderator, user")]
+        [Authorize(Roles = "moderator, user, admin, Ученый секретарь, Член диссовета")]
         [HttpPost]
         public string Index(string searchString, bool notUsed)
         {
@@ -106,7 +122,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "moderator, user")]
+        [Authorize(Roles = "moderator, user, admin, Ученый секретарь, Член диссовета")]
         // GET: PhdStudents/Details/5
         public async Task<IActionResult> Details(int id)
         {   /*
@@ -149,7 +165,7 @@ namespace Phd.Controllers
             });
         }
 
-       // [Authorize(Roles = "moderator")]
+        [Authorize(Roles = "moderator, admin, Ученый секретарь")]
         // GET: PhdStudents/Create
         public async Task<IActionResult> Create()
         {
@@ -192,7 +208,7 @@ namespace Phd.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-        //[Authorize(Roles = "moderator")]
+        [Authorize(Roles = "moderator, admin, Ученый секретарь")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,LastName,FirstName,MiddleName,MajorCode,MajorName,ThesisNameRus,ThesisComDate,ComMemberNumberTotal,ComMemberNumberSpecific,EducationDirection,MajorId,TrainingDirectionId,DisCouncilId")] PhdStudent phdStudent)
@@ -223,7 +239,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "moderator, user")]
+        [Authorize(Roles = "moderator, user, Ученый секретарь, Член диссовета")]
         public IActionResult CreateVote(int id)
         {
             ViewBag.Id = id;
@@ -231,7 +247,7 @@ namespace Phd.Controllers
         }
 
 
-        [Authorize(Roles = "moderator, user")]
+        [Authorize(Roles = "moderator, user, Ученый секретарь, Член диссовета")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateVote([Bind("PhdStudentId,Voice")] Vote vote)
@@ -373,7 +389,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "moderator")]
+        [Authorize(Roles = "moderator, Ученый секретарь")]
         public IActionResult VoteResult(int? id)
         {
             var resultAll = Context.Vote.Count(p => p.PhdStudentId == id);
@@ -399,7 +415,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "moderator")]
+        [Authorize(Roles = "moderator, admin, Ученый секретарь")]
         [HttpGet]
         public async Task<IActionResult> GetReportsAsync(int id)
         {
@@ -468,7 +484,7 @@ namespace Phd.Controllers
 
 
 
-        [Authorize(Roles = "moderator")]
+        [Authorize(Roles = "moderator, admin, Ученый секретарь")]
         // GET: PhdStudents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -490,7 +506,7 @@ namespace Phd.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-        [Authorize(Roles = "moderator")]
+        [Authorize(Roles = "moderator, admin, Ученый секретарь, Член диссовета")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,LastName,FirstName,MiddleName,MajorCode,MajorName,ThesisNameRus,ThesisComDate,ComMemberNumberTotal,ComMemberNumberSpecific,EducationDirection,MajorId,TrainingDirectionId")] PhdStudent phdStudent)
@@ -523,7 +539,7 @@ namespace Phd.Controllers
             return View(phdStudent);
         }
 
-        [Authorize(Roles = "moderator")]
+        [Authorize(Roles = "moderator, admin, Ученый секретарь")]
         // GET: PhdStudents/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -544,7 +560,7 @@ namespace Phd.Controllers
 
 
         // POST: PhdStudents/Delete/5
-        [Authorize(Roles = "moderator")]
+        [Authorize(Roles = "moderator, admin, Ученый секретарь")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -559,5 +575,34 @@ namespace Phd.Controllers
         {
             return Context.PhdStudent.Any(e => e.Id == id);
         }
+
+
+
+
+
+        /////////////////////////////////////////////
+
+
+
+
+
+
+
+        public IActionResult GetQRCode(int? id)
+        {
+           ViewBag.Url = $"{Request.Scheme}://{Request.Host}/PhdStudents/Details/{id}";
+
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

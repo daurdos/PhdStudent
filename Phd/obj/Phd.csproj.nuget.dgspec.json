@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ENU\\source\\repos\\Phd\\Phd\\Phd.csproj": {}
+    "C:\\Users\\ENU\\source\\repos\\Phd_ис\\Phd\\Phd\\Phd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ENU\\source\\repos\\Phd\\Phd\\Phd.csproj": {
+    "C:\\Users\\ENU\\source\\repos\\Phd_ис\\Phd\\Phd\\Phd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ENU\\source\\repos\\Phd\\Phd\\Phd.csproj",
+        "projectUniqueName": "C:\\Users\\ENU\\source\\repos\\Phd_ис\\Phd\\Phd\\Phd.csproj",
         "projectName": "Phd",
-        "projectPath": "C:\\Users\\ENU\\source\\repos\\Phd\\Phd\\Phd.csproj",
+        "projectPath": "C:\\Users\\ENU\\source\\repos\\Phd_ис\\Phd\\Phd\\Phd.csproj",
         "packagesPath": "C:\\Users\\ENU\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ENU\\source\\repos\\Phd\\Phd\\obj\\",
+        "outputPath": "C:\\Users\\ENU\\source\\repos\\Phd_ис\\Phd\\Phd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,7 +43,7 @@
           "dependencies": {
             "MailKit": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[2.3.0, )"
             },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
@@ -64,6 +64,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.9, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "ZXing.Net": {
+              "target": "Package",
+              "version": "[0.16.4, )"
             }
           },
           "imports": [

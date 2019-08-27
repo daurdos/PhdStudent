@@ -19,16 +19,16 @@
         <div><b><em>@Html.DisplayFor(model => model.MajName) </em></b></div>
         <br />
         <div>
+
             Состав диссертационного совета утвержден в количестве
-            @Html.DisplayFor(model => model.OverallVoteQuantity)
+            @Html.DisplayFor(model => model.MemberNumberTotal)
+
         </div>
         <hr />
         <div>
-            Присутствовало на заседании
+            Присутствовало на заседании ____
             <b>
-                <em>
-                    @Html.DisplayFor(model => model.MemberNumberTotal)
-                </em>
+
             </b>
             членов совета, в том числе по профилю рассматриваемой диссертации _____
         </div>
@@ -52,7 +52,7 @@
         <table>
             <tr>
                 <td>
-                    <label>Председатель счетной комиссии</label>
+                    <label>Председатель комиссии</label>
                 </td>
                 <td>
                     <label>____________________________________________________________________</label>

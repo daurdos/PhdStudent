@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Phd.Data;
@@ -42,7 +40,8 @@ namespace Phd
                     options.UseSqlServer(Configuration.GetConnectionString("PhdContext")));
 
             services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<PhdContext>();
+                .AddEntityFrameworkStores<PhdContext>()
+                .AddDefaultTokenProviders();
 
             services.AddMvc();
         }

@@ -10,7 +10,7 @@ namespace Phd.Data
     {
         public static async Task InitializeAsync(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, PhdContext context)
         {
-            string adminEmail = "admin@gmail.com";
+            string adminEmail = "daurdos@gmail.com";
             string password = "!QAZ1qaz";
             if (await roleManager.FindByNameAsync("admin") == null)
             {

@@ -47,19 +47,19 @@ namespace Phd.Models
         public ICollection<Vote> Vote { get; set; } // one PhdStudent - many Votes
 
 
-
+        [Display(Name = "Специальность")]
         public int MajorId { get; set; } // many PhdStudents - one Major
 
         public Major Major { get; set; } // many PhdStudents - one Major
 
 
-
+        [Display(Name = "Направление подготовки")]
         public int TrainingDirectionId { get; set; } // many PhdStudents - one TrainingDirection
 
         public TrainingDirection TrainingDirection { get; set; } // many PhdStudents - one TrainingDirection
 
 
-        
+        [Display(Name = "Номер приказа диссовета")]
         public int DisCouncilId { get; set; } // many PhdStudents - one Dissertation Council
 
         public DisCouncil DisCouncil { get; set; } // many PhdStudents - one Dissertation Council

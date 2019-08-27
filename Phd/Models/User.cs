@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Phd.Models
 {
@@ -10,7 +11,7 @@ namespace Phd.Models
         public string MiddleName { get; set; }
 
 
-        
+        [Display(Name = "Диссовет")]
         public int DisCouncilId { get; set; } // many Users - one Dissertation Council
         public DisCouncil DisCouncil { get; set; } // many Users - one Dissertation Council
         

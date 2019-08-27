@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MimeKit;
+﻿using MimeKit;
 using MailKit.Net.Smtp;
+using System.Threading.Tasks;
+using System.Net.Mail;
 
 
 namespace Phd
@@ -14,7 +12,7 @@ namespace Phd
         {
             var emailMessage = new MimeMessage();
 
-            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "daurdos@gmail.com"));
+            emailMessage.From.Add(new MailboxAddress("Администрация сайта", "daurdos@mail.ru"));
             emailMessage.To.Add(new MailboxAddress("", email));
             emailMessage.Subject = subject;
             emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
@@ -22,10 +20,10 @@ namespace Phd
                 Text = message
             };
 
-            using (var client = new SmtpClient())
+            using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                await client.ConnectAsync("smtp.yandex.ru", 25, false);
-                await client.AuthenticateAsync("daurdos@gmail.com", "password");
+                await client.ConnectAsync("smtp.mail.ru", 25, false);
+                await client.AuthenticateAsync("daurdos@mail.ru", "MAILlife(1990)");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
