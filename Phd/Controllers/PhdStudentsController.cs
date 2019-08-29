@@ -39,6 +39,7 @@ namespace Phd.Controllers
 
             var students = Context.PhdStudent.Include(p => p.Major).Include(p => p.TrainingDirection).AsEnumerable();
 
+
             /*
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -175,14 +176,14 @@ namespace Phd.Controllers
             majorList = (from major in Context.Major
                             select major).ToList();
 
-            majorList.Insert(0, new Major { Id = 0, MajorCypher = "Select" });
+            majorList.Insert(0, new Major { Id = 0, MajorCypher = "Выбрать" });
 
             ViewBag.ListOfMajor = majorList;
 
             trainingDirectionList = (from trainingDirection in Context.TrainingDirection
                                      select trainingDirection).ToList();
 
-            trainingDirectionList.Insert(0, new TrainingDirection { Id = 0, TrainingDirectionCypher = "Select" });
+            trainingDirectionList.Insert(0, new TrainingDirection { Id = 0, TrainingDirectionCypher = "Выбрать" });
 
             ViewBag.ListOfTrainingDirection = trainingDirectionList;
 

@@ -9,14 +9,23 @@ namespace Phd.Models
     public class DisCouncil
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "Укажите номер приказа диссовета")]
         [Display(Name = "Номер приказа")]
         public string OrderNumber { get; set; }
+
+        [Required(ErrorMessage = "Укажите председателя")]
         [Display(Name = "Председатель")]
         public string CouncilChairman { get; set; }
+
+        [Required(ErrorMessage = "Укажите секретаря")]
         [Display(Name = "Секретарь")]
         public string CouncilSecretary { get; set; }
+
+        [Required(ErrorMessage = "Перечислите членов совета через запятую")]
         [Display(Name = "Члены совета")]
         public string CouncilMember { get; set; }
+
         [Display(Name = "Дата защиты")]
         public DateTime DefenceDate { get; set; }
 

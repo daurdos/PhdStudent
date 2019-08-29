@@ -14,12 +14,12 @@
         <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
-    <div>
-        <label asp-for="RememberMe"></label><br />
-        <input asp-for="RememberMe" />
-    </div>
     <br>
     <div>
         <input type="submit" value="Войти" />
     </div>
 </form>
+<br>
+<p>
+    <a asp-controller="Account" asp-action="ForgotPassword">Забыли пароль?</a>
+</p>

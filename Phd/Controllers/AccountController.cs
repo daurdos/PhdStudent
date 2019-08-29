@@ -54,7 +54,8 @@ namespace Phd.Controllers
                     await emailService.SendEmailAsync(model.Email, "Confirm your account",
                         $"Подтвердите регистрацию, перейдя по ссылке: <a href='{callbackUrl}'>link</a>");
 
-                    return Content("Для завершения регистрации проверьте электронную почту и перейдите по ссылке, указанной в письме");
+                    // return Content("Для завершения регистрации проверьте электронную почту и перейдите по ссылке, указанной в письме");
+                    return RedirectToAction("RegistrationSend", "Account");
                 }
                 else
                 {
@@ -111,7 +112,7 @@ namespace Phd.Controllers
             }
             var result = await _userManager.ConfirmEmailAsync(user, code);
             if (result.Succeeded)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("RegistrationConfirm", "Account");
             else
                 return View("Error");
         }
@@ -281,9 +282,17 @@ namespace Phd.Controllers
 
 
 
+        [HttpGet]
+        public IActionResult RegistrationConfirm()
+        {
+            return View();
+        }
 
-
-
+        [HttpGet]
+        public IActionResult RegistrationSend()
+        {
+            return View();
+        }
 
 
 
